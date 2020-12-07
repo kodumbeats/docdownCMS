@@ -1,17 +1,7 @@
-<template>
-  <vue-easymde v-model="content" ref="markdownEditor" />
-</template>
+<template><div></div></template>
 
 <script>
-import VueEasymde from "vue-easymde";
-
-export default {
-  components: {
-    VueEasymde
-  }
-};
+export default {};
 </script>
 
-<style>
-@import "~easymde/dist/easymde.min.css";
-</style>
+<style></style>
