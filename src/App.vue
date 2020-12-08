@@ -17,6 +17,7 @@
       </div>
     </nav>
     <router-view />
+    <p>{{ $store.state.html }}</p>
   </div>
 </template>
 
