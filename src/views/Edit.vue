@@ -33,11 +33,13 @@ export default {
         "# EasyMDE \n Go ahead, play around with the editor! Be sure to check out **bold**, *italic* and ~~strikethrough~~ styling, [links](https://google.com) and all the other features. You can type the Markdown syntax, use the toolbar, or use shortcuts like `ctrl-b` or `cmd-b`."
     });
     editor.codemirror.on("change", () => {
+      this.$store.dispatch("saveMd", editor.value());
       const payload = {
         data: editor.value()
       };
       axios.post("http://localhost:3100/render", payload).then(renderRes => {
         this.htmlOutput = renderRes.data.data;
+        this.$store.dispatch("saveHtml", renderRes.data.data);
       });
     });
   }
