@@ -1,12 +1,8 @@
 <template>
-  <div>
-    <div class="padded"><textarea></textarea></div>
-    <hr />
-    <h1>Rendered Output</h1>
-    <div class="padded"><span v-html="htmlOutput"></span></div>
-    <hr />
-    <h1>Raw Output</h1>
-    <div class="padded">{{ htmlOutput }}</div>
+  <div class="padded">
+    <textarea></textarea>
+    <button class="button" @click="localSave">Save Locally</button>
+    <button class="button" @click="review">Review & Submit</button>
   </div>
 </template>
 
@@ -21,6 +17,14 @@ export default {
     return {
       htmlOutput: ""
     };
+  },
+  methods: {
+    localSave() {
+      console.log("localSave");
+    },
+    review() {
+      console.log("review");
+    }
   },
   mounted() {
     const editor = new easymde({
