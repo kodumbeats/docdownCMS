@@ -3,6 +3,11 @@
     <textarea></textarea>
     <button class="button" @click="localSave">Save Locally</button>
     <button class="button" @click="review">Review & Submit</button>
+    <hr />
+    <div v-html="docHeader"></div>
+    <div v-html="htmlOutput"></div>
+    <hr />
+    <div>{{ htmlOutput }}</div>
   </div>
 </template>
 
@@ -15,6 +20,7 @@ export default {
   name: "Edit",
   data() {
     return {
+      docHeader: "",
       htmlOutput: ""
     };
   },
@@ -39,6 +45,7 @@ export default {
       };
       axios.post("http://localhost:3100/render", payload).then(renderRes => {
         this.htmlOutput = renderRes.data.data;
+        this.docHeader = renderRes.data.header;
         this.$store.dispatch("saveHtml", renderRes.data.data);
       });
     });
