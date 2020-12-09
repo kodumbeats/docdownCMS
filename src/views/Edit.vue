@@ -1,13 +1,16 @@
 <template>
   <div class="padded">
     <textarea></textarea>
+    <button class="button" @click="showPreview = !showPreview">
+      Show Preview
+    </button>
     <button class="button" @click="localSave">Save Locally</button>
     <button class="button" @click="review">Review & Submit</button>
     <hr />
-    <div v-html="docHeader"></div>
-    <div v-html="htmlOutput"></div>
-    <hr />
-    <div>{{ htmlOutput }}</div>
+    <div v-show="showPreview">
+      <div v-html="docHeader"></div>
+      <div v-html="htmlOutput"></div>
+    </div>
   </div>
 </template>
 
@@ -20,6 +23,7 @@ export default {
   name: "Edit",
   data() {
     return {
+      showPreview: false,
       docHeader: "",
       htmlOutput: ""
     };
