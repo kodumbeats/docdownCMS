@@ -38,7 +38,28 @@ export default {
   },
   mounted() {
     const editor = new easymde({
-      hideIcons: ["fullscreen", "preview", "side-by-side"],
+      toolbar: [
+        "bold",
+        "italic",
+        "strikethrough",
+        {
+          name: "underline",
+          action: console.log("underline"),
+          className: "fa fa-underline",
+          title: "Underline"
+        },
+        "|",
+        "heading-smaller",
+        "heading",
+        "heading-bigger",
+        "|",
+        "table",
+        "image",
+        "|",
+        "preview",
+        "side-by-side",
+        "fullscreen"
+      ],
       initialValue:
         "---\ntitle: Title\ndocnum: SOP-ABC-XXXX\neff: DRAFT\n\n---\n# Begin writing"
     });
