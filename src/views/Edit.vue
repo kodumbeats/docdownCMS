@@ -1,7 +1,11 @@
 <template>
   <div class="padded">
     <textarea></textarea>
-    <button class="button" @click="showPreview = !showPreview">
+    <button
+      class="button"
+      :class="[showPreview ? 'is-info' : '']"
+      @click="showPreview = !showPreview"
+    >
       Show Preview
     </button>
     <button class="button" @click="localSave">Save Locally</button>
@@ -34,6 +38,9 @@ export default {
     },
     review() {
       console.log("review");
+    },
+    underline() {
+      console.log("underline");
     }
   },
   mounted() {
