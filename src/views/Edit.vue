@@ -49,12 +49,7 @@ export default {
         "bold",
         "italic",
         "strikethrough",
-        {
-          name: "underline",
-          action: console.log("underline"),
-          className: "fa fa-underline",
-          title: "Underline"
-        },
+        "underline",
         "|",
         "heading-smaller",
         "heading",

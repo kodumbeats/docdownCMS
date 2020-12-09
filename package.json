@@ -11,7 +11,7 @@
     "axios": "^0.21.0",
     "bulma": "^0.9.1",
     "core-js": "^3.6.5",
-    "easymde": "^2.13.0",
+    "easymde": "git+https://github.com/kodumbeats/easy-markdown-editor.git#kodumbeats",
     "register-service-worker": "^1.7.1",
     "vue": "^3.0.0",
     "vue-router": "^4.0.0-0",
