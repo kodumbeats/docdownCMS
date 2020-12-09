@@ -7,9 +7,22 @@
       </div>
     </nav>
     <router-view />
-    <p>{{ $store.state.html }}</p>
+    <p>{{ renderedHtml }}</p>
   </div>
 </template>
+
+<script>
+export default {
+  name: "App",
+  computed: {
+    renderedHtml: {
+      get() {
+        return this.$store.state.html;
+      }
+    }
+  }
+};
+</script>
 
 <style>
 html,
