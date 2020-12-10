@@ -36,7 +36,6 @@ export default {
         "underline",
         "|",
         "heading-smaller",
-        "heading",
         "heading-bigger",
         "|",
         "table",
