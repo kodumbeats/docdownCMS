@@ -11,15 +11,15 @@ export default createStore({
       state.markdown = m;
     },
     saveHtml(state, h) {
-      state.markdown = h;
+      state.html = h;
     }
   },
   actions: {
-    saveMd(context: any) {
-      context.commit("saveMd");
+    saveMd(context: any, m: string) {
+      context.commit("saveMd", m);
     },
-    saveHtml(context: any) {
-      context.commit("saveHtml");
+    saveHtml(context: any, h: string) {
+      context.commit("saveHtml", h);
     }
   },
   modules: {},
