@@ -6,8 +6,11 @@
         <router-link class="navbar-item" to="/edit">edit</router-link>
       </div>
     </nav>
-    <router-view />
-    <p>{{ renderedHtml }}</p>
+    <div class="columns">
+      <div class="column is-1"><router-view name="sidebar"></router-view></div>
+      <div class="column is-10"><router-view name="default"></router-view></div>
+      <div class="column is-1"></div>
+    </div>
   </div>
 </template>
 
