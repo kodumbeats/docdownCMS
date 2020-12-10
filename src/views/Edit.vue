@@ -1,20 +1,8 @@
 <template>
   <div class="padded">
     <textarea></textarea>
-    <button
-      class="button"
-      :class="[showPreview ? 'is-info' : '']"
-      @click="showPreview = !showPreview"
-    >
-      Show Preview
-    </button>
     <button class="button" @click="localSave">Save Locally</button>
     <button class="button" @click="review">Review & Submit</button>
-    <hr />
-    <div v-show="showPreview">
-      <div v-html="docHeader"></div>
-      <div v-html="htmlOutput"></div>
-    </div>
   </div>
 </template>
 
@@ -27,7 +15,6 @@ export default {
   name: "Edit",
   data() {
     return {
-      showPreview: false,
       docHeader: "",
       htmlOutput: ""
     };
@@ -60,7 +47,10 @@ export default {
         "fullscreen"
       ],
       initialValue:
-        "---\ntitle: Title\ndocnum: SOP-ABC-XXXX\neff: DRAFT\n\n---\n# Begin writing"
+        "---\ntitle: Title\ndocnum: SOP-ABC-XXXX\neff: DRAFT\n\n---\n# Begin writing",
+      previewRender: () => {
+        return String(this.docHeader + this.htmlOutput);
+      }
     });
     editor.codemirror.on("change", () => {
       this.$store.dispatch("saveMd", editor.value());
@@ -70,7 +60,10 @@ export default {
       axios.post("http://localhost:3100/render", payload).then(renderRes => {
         this.htmlOutput = renderRes.data.data;
         this.docHeader = renderRes.data.header;
-        this.$store.dispatch("saveHtml", renderRes.data.data);
+        this.$store.dispatch(
+          "saveHtml",
+          String(renderRes.data.header + renderRes.data.data)
+        );
       });
     });
   }
