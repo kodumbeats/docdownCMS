@@ -1,4 +1,5 @@
 import { createStore } from "vuex";
+import VuexPersistence from "vuex-persist";
 
 export default createStore({
   state: {
@@ -21,5 +22,11 @@ export default createStore({
       context.commit("saveHtml");
     }
   },
-  modules: {}
+  modules: {},
+  plugins: [
+    new VuexPersistence({
+      key: "docdownCMS",
+      storage: window.localStorage
+    }).plugin
+  ]
 });
