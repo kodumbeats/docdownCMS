@@ -20,7 +20,7 @@
 
 <script>
 import axios from "axios";
-import easymde from "../../node_modules/easymde/dist/easymde.min.js";
+import easymde from "easymde";
 import "../../node_modules/easymde/dist/easymde.min.css";
 
 export default {
@@ -38,9 +38,6 @@ export default {
     },
     review() {
       console.log("review");
-    },
-    underline() {
-      console.log("underline");
     }
   },
   mounted() {
