@@ -1,6 +1,6 @@
 <template>
   <div class="padded">
-    <textarea></textarea>
+    <div class="editorContainer"><textarea></textarea></div>
     <button class="button" @click="localSave">Save Locally</button>
     <button class="button" @click="review">Review & Submit</button>
   </div>
@@ -47,6 +47,7 @@ export default {
       ],
       initialValue:
         "---\ntitle: Title\ndocnum: SOP-ABC-XXXX\neff: DRAFT\n\n---\n# Begin writing",
+      maxHeight: "500px",
       previewRender: () => {
         return String(this.docHeader + this.htmlOutput);
       }
@@ -73,5 +74,8 @@ export default {
 .padded {
   margin: 1em;
   padding: 1em;
+}
+.editorContainer {
+  height: 600px;
 }
 </style>
