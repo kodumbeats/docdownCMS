@@ -1,5 +1,5 @@
 <template>
-  <div class="sidebarContainer">type</div>
+  <div class="sidebarContainer"></div>
 </template>
 <style></style>
 <script>
