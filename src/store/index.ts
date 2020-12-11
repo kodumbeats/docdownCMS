@@ -15,7 +15,10 @@ export default createStore({
   },
   mutations: {
     saveRevision(state, r: string) {
-      state.revisions.push(r);
+      state.revisions.push({
+        title: "testSOP.md",
+        text: r
+      });
     },
     saveMd(state, m: string) {
       state.markdown = m;

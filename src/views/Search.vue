@@ -12,7 +12,7 @@
         <span class="panel-icon">
           <i class="fas fa-book" aria-hidden="true"></i>
         </span>
-        {{ doc }}
+        {{ doc.title }}
       </a>
     </article>
   </div>

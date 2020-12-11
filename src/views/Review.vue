@@ -32,16 +32,13 @@ export default {
       this.newDraft = JSON.parse(
         window.localStorage.getItem("docdownCMS")
       ).saved;
-      console.log(this.newDraft);
-      const res = await axios.get("http://localhost:3100/revisions");
-      const revisions = res.data.revisions;
-      console.log(revisions);
+      const revisions = JSON.parse(window.localStorage.getItem("docdownCMS"))
+        .revisions;
       if (revisions.length == 0) {
         this.lastRevision = "";
       } else {
-        this.lastRevision = revisions[revisions.length - 1];
+        this.lastRevision = revisions[revisions.length - 1].text;
       }
-      console.log(this.lastRevision, this.newDraft);
       const diff = Diff.createPatch(
         "testSOP.md",
         this.lastRevision,
