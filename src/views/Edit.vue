@@ -21,7 +21,7 @@ export default {
   },
   methods: {
     localSave() {
-      console.log("localSave");
+      this.$store.dispatch("saveDoc", this.editor.value());
     },
     review() {
       console.log("review");
@@ -53,6 +53,7 @@ export default {
       },
       sideBySideFullscreen: false
     });
+    Object.assign(this, { editor });
     editor.codemirror.on("change", () => {
       this.$store.dispatch("saveMd", editor.value());
       const payload = {
