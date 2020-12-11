@@ -24,7 +24,8 @@ export default {
       this.$store.dispatch("saveDoc", this.editor.value());
     },
     review() {
-      console.log("review");
+      this.localSave();
+      this.$router.push("/review");
     }
   },
   mounted() {
