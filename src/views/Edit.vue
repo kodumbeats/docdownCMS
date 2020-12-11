@@ -2,6 +2,7 @@
   <div class="padded">
     <div class="editorContainer"><textarea></textarea></div>
     <button class="button" @click="localSave">Save Locally</button>
+    <button class="button" @click="loadFromSave">Load Save</button>
     <button class="button" @click="review">Review & Submit</button>
   </div>
 </template>
@@ -20,6 +21,11 @@ export default {
     };
   },
   methods: {
+    loadFromSave() {
+      this.editor.value(
+        JSON.parse(window.localStorage.getItem("docdownCMS")).saved
+      );
+    },
     localSave() {
       this.$store.dispatch("saveDoc", this.editor.value());
     },
