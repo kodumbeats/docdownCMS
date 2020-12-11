@@ -4,14 +4,18 @@ import VuexPersistence from "vuex-persist";
 export default createStore({
   state: {
     markdown: "",
-    html: ""
+    html: "",
+    saved: ""
   },
   mutations: {
-    saveMd(state, m) {
+    saveMd(state, m: string) {
       state.markdown = m;
     },
-    saveHtml(state, h) {
+    saveHtml(state, h: string) {
       state.html = h;
+    },
+    saveDoc(state, m: string) {
+      state.saved = m;
     }
   },
   actions: {
@@ -20,6 +24,9 @@ export default createStore({
     },
     saveHtml(context: any, h: string) {
       context.commit("saveHtml", h);
+    },
+    saveDoc(context: any, m: string) {
+      context.commit("saveDoc", m);
     }
   },
   modules: {},
