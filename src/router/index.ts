@@ -1,6 +1,7 @@
 import { createRouter, createWebHistory, RouteRecordRaw } from "vue-router";
 import Home from "../views/Home.vue";
 import Edit from "../views/Edit.vue";
+import Review from "../views/Review.vue";
 import Sidebar from "../views/Sidebar.vue";
 
 const routes: Array<RouteRecordRaw> = [
@@ -23,6 +24,14 @@ const routes: Array<RouteRecordRaw> = [
     name: "Edit",
     components: {
       default: Edit,
+      sidebar: Sidebar
+    }
+  },
+  {
+    path: "/review",
+    name: "Review",
+    components: {
+      default: Review,
       sidebar: Sidebar
     }
   }
