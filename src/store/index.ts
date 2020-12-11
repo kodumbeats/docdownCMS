@@ -8,6 +8,11 @@ export default createStore({
     saved: "",
     revisions: [] as any
   },
+  getters: {
+    getRevisions(state) {
+      return state.revisions;
+    }
+  },
   mutations: {
     saveRevision(state, r: string) {
       state.revisions.push(r);
