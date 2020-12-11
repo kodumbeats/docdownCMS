@@ -1,6 +1,6 @@
 # docdowncms
 
-docdownCMS is a platform for writing and maintaining a library of GMP documents, written using [Vue 3](https://v3.vuejs.org/) and [EasyMDE](https://github.com/kodumbeats/easy-markdown-editor).
+docdownCMS is a platform for writing and maintaining a library of GMP documents, written using [Vue 3](https://v3.vuejs.org/), [Bulma](https://bulma.io), and [EasyMDE](https://github.com/kodumbeats/easy-markdown-editor).
 
 **Why?** Scientists in 2020 spend too much time formatting Word documents, adjusting tables, renumbering headings, and attempting to collaborate over email or shared drive. In 2020 especially, scientists deserve Silicon-Valley-tested technologies to advance research for the betterment of all.
 
