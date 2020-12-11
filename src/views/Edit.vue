@@ -21,6 +21,13 @@ export default {
     };
   },
   methods: {
+    initialData() {
+      const localStore = localStorage.getItem("docdownCMS");
+      const initialData = localStore
+        ? JSON.parse(localStore).saved
+        : "---\ntitle: Title\ndocnum: SOP-ABC-XXXX\neff: DRAFT\n\n---\n# Begin writing";
+      return initialData;
+    },
     loadFromSave() {
       this.editor.value(
         JSON.parse(window.localStorage.getItem("docdownCMS")).saved
@@ -52,8 +59,7 @@ export default {
         "side-by-side",
         "fullscreen"
       ],
-      initialValue:
-        "---\ntitle: Title\ndocnum: SOP-ABC-XXXX\neff: DRAFT\n\n---\n# Begin writing",
+      initialValue: this.initialData(),
       maxHeight: "500px",
       previewRender: () => {
         return String(this.docHeader + this.htmlOutput);
