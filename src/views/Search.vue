@@ -12,7 +12,8 @@
         <span class="panel-icon">
           <i class="fas fa-book" aria-hidden="true"></i>
         </span>
-        {{ doc.title }}
+        <!--&emsp; is four spaces-->
+        {{ doc.title }}&emsp;rev: {{ index }}
       </a>
     </article>
   </div>
