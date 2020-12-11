@@ -5,9 +5,13 @@ export default createStore({
   state: {
     markdown: "",
     html: "",
-    saved: ""
+    saved: "",
+    revisions: [] as any
   },
   mutations: {
+    saveRevision(state, r: string) {
+      state.revisions.push(r);
+    },
     saveMd(state, m: string) {
       state.markdown = m;
     },
@@ -19,6 +23,9 @@ export default createStore({
     }
   },
   actions: {
+    saveRevision(context: any, r: string) {
+      context.commit("saveRevision", r);
+    },
     saveMd(context: any, m: string) {
       context.commit("saveMd", m);
     },

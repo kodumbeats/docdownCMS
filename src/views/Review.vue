@@ -3,6 +3,10 @@
     <div id="diffHtml" v-html="diffHtml"></div>
     <button class="button" @click="$router.push('/edit')">Make changes</button>
     <button class="button" @click="submitRevision">Submit</button>
+    <div class="notification is-success" v-show="notification">
+      <button class="delete" @click="notification = false"></button>
+      Revision saved successfully.
+    </div>
   </div>
 </template>
 
@@ -19,7 +23,8 @@ export default {
       lastRevision: "",
       newDraft: "",
       diff: "",
-      diffHtml: ""
+      diffHtml: "",
+      notification: false
     };
   },
   methods: {
@@ -36,8 +41,7 @@ export default {
       } else {
         this.lastRevision = revisions[revisions.length - 1];
       }
-      console.log(this.lastRevision);
-      // const diff = Diff.diffWords(this.lastRevision, this.newDraft)
+      console.log(this.lastRevision, this.newDraft);
       const diff = Diff.createPatch(
         "testSOP.md",
         this.lastRevision,
@@ -49,9 +53,8 @@ export default {
       this.diff = diff;
     },
     async submitRevision() {
-      axios.post("http://localhost:3100", this.newDraft, res =>
-        console.log({ res })
-      );
+      this.$store.dispatch("saveRevision", this.newDraft);
+      this.notification = true;
     }
   },
   async mounted() {
@@ -60,4 +63,10 @@ export default {
 };
 </script>
 
-<style></style>
+<style>
+.notification {
+  position: absolute;
+  bottom: 0;
+  width: 25%;
+}
+</style>
