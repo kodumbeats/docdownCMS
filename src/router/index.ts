@@ -3,6 +3,7 @@ import Home from "../views/Home.vue";
 import Edit from "../views/Edit.vue";
 import Review from "../views/Review.vue";
 import Sidebar from "../views/Sidebar.vue";
+import Search from "../views/Search.vue";
 
 const routes: Array<RouteRecordRaw> = [
   {
@@ -32,6 +33,14 @@ const routes: Array<RouteRecordRaw> = [
     name: "Review",
     components: {
       default: Review,
+      sidebar: Sidebar
+    }
+  },
+  {
+    path: "/search",
+    name: "Search",
+    components: {
+      default: Search,
       sidebar: Sidebar
     }
   }
