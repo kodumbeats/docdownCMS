@@ -1,6 +1,8 @@
 <template>
   <div>
     <div id="diffHtml" v-html="diffHtml"></div>
+    <button class="button" @click="$router.push('/edit')">Make changes</button>
+    <button class="button" @click="submitRevision">Submit</button>
   </div>
 </template>
 
@@ -45,6 +47,11 @@ export default {
         matching: "lines"
       });
       this.diff = diff;
+    },
+    async submitRevision() {
+      axios.post("http://localhost:3100", this.newDraft, res =>
+        console.log({ res })
+      );
     }
   },
   async mounted() {
