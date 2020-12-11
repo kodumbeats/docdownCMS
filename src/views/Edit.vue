@@ -50,7 +50,8 @@ export default {
       maxHeight: "500px",
       previewRender: () => {
         return String(this.docHeader + this.htmlOutput);
-      }
+      },
+      sideBySideFullscreen: false
     });
     editor.codemirror.on("change", () => {
       this.$store.dispatch("saveMd", editor.value());
