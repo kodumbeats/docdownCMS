@@ -99,11 +99,7 @@ router.beforeEach((to, from, next) => {
           next();
         })
         .catch(err => {
-          if (err.message === "Unauthorized") {
-            console.log("401 Unauthorized");
-          } else {
-            console.log(err);
-          }
+          console.log(err.message);
           next({
             path: "/login"
           });

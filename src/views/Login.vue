@@ -50,10 +50,9 @@ export default {
       this.appwrite.account
         .createSession(this.email, this.password)
         .then(res => {
-          console.log(res);
           this.$router.push("/edit");
         })
-        .catch(err => console.log(err));
+        .catch(err => console.log(err.message));
     }
   }
 };
