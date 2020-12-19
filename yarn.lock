@@ -1877,6 +1877,11 @@ anymatch@~3.1.1:
     normalize-path "^3.0.0"
     picomatch "^2.0.4"
 
+appwrite@^1.1.0:
+  version "1.1.0"
+  resolved "https://registry.yarnpkg.com/appwrite/-/appwrite-1.1.0.tgz#1a35e665fd8c6562ab03961f7b91049860a7b607"
+  integrity sha512-X01Z5UVGoYFexRuvFUw/Ymp7yDvWWmdXpgMmz28oHeusj19mOzPLKlH4O9PTyRSE2uI++A4nohoK41Nx8/o2tQ==
+
 aproba@^1.1.1:
   version "1.2.0"
   resolved "https://registry.yarnpkg.com/aproba/-/aproba-1.2.0.tgz#6802e6264efd18c790a1b0d517f0f2627bf2c94a"

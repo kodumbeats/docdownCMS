@@ -4,6 +4,7 @@
       <div class="navbar-brand">
         <router-link class="navbar-item" to="/">docdownCMS</router-link>
         <router-link class="navbar-item" to="/edit">edit</router-link>
+        <router-link class="navbar-item" to="/login">login</router-link>
         <router-link class="navbar-item" to="/review">review</router-link>
         <router-link class="navbar-item" to="/search">search</router-link>
       </div>

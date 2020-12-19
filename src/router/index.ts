@@ -1,6 +1,7 @@
 import { createRouter, createWebHistory, RouteRecordRaw } from "vue-router";
 import Home from "../views/Home.vue";
 import Edit from "../views/Edit.vue";
+import Login from "../views/Login.vue";
 import Review from "../views/Review.vue";
 import Sidebar from "../views/Sidebar.vue";
 import Search from "../views/Search.vue";
@@ -25,6 +26,14 @@ const routes: Array<RouteRecordRaw> = [
     name: "Edit",
     components: {
       default: Edit,
+      sidebar: Sidebar
+    }
+  },
+  {
+    path: "/login",
+    name: "Login",
+    components: {
+      default: Login,
       sidebar: Sidebar
     }
   },
