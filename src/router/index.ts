@@ -10,11 +10,17 @@ const routes: Array<RouteRecordRaw> = [
   {
     path: "/",
     name: "Home",
-    component: Home
+    component: Home,
+    meta: {
+      guest: true
+    }
   },
   {
     path: "/about",
     name: "About",
+    meta: {
+      guest: true
+    },
     // route level code-splitting
     // this generates a separate chunk (about.[hash].js) for this route
     // which is lazy-loaded when the route is visited.
@@ -27,6 +33,9 @@ const routes: Array<RouteRecordRaw> = [
     components: {
       default: Edit,
       sidebar: Sidebar
+    },
+    meta: {
+      needsAuth: true
     }
   },
   {
@@ -35,6 +44,9 @@ const routes: Array<RouteRecordRaw> = [
     components: {
       default: Login,
       sidebar: Sidebar
+    },
+    meta: {
+      guest: true
     }
   },
   {
@@ -43,6 +55,9 @@ const routes: Array<RouteRecordRaw> = [
     components: {
       default: Review,
       sidebar: Sidebar
+    },
+    meta: {
+      needsAuth: true
     }
   },
   {
@@ -51,6 +66,9 @@ const routes: Array<RouteRecordRaw> = [
     components: {
       default: Search,
       sidebar: Sidebar
+    },
+    meta: {
+      needsAuth: true
     }
   }
 ];
