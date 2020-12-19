@@ -1,4 +1,5 @@
 import { createRouter, createWebHistory, RouteRecordRaw } from "vue-router";
+import Appwrite from "appwrite";
 import Home from "../views/Home.vue";
 import Edit from "../views/Edit.vue";
 import Login from "../views/Login.vue";
@@ -76,6 +77,45 @@ const routes: Array<RouteRecordRaw> = [
 const router = createRouter({
   history: createWebHistory(process.env.BASE_URL),
   routes
+});
+
+router.beforeEach((to, from, next) => {
+  if (to.matched.some(record => record.meta.needsAuth)) {
+    if (localStorage.getItem("cookieFallback") == null) {
+      next({
+        path: "/login"
+      });
+    } else {
+      const appwrite = new Appwrite();
+      appwrite.setEndpoint("http://localhost/v1").setProject("5fdd4adb21c1a");
+      appwrite.account
+        .get()
+        .then(res => {
+          console.log(res);
+          next({
+            path: "/edit"
+          });
+        })
+        .catch(err => {
+          if (err.message === "Unauthorized") {
+            console.log("401 Unauthorized");
+          } else {
+            console.log(err);
+          }
+          next({
+            path: "/login"
+          });
+        });
+    }
+  } else if (to.matched.some(record => record.meta.guest)) {
+    if (localStorage.getItem("cookieFallback") == null) {
+      next();
+    } else {
+      next();
+    }
+  } else {
+    next();
+  }
 });
 
 export default router;
