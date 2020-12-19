@@ -95,11 +95,8 @@ router.beforeEach((to, from, next) => {
         .setProject(apiProject);
       appwrite.account
         .get()
-        .then(res => {
-          console.log(res);
-          next({
-            path: "/edit"
-          });
+        .then(() => {
+          next();
         })
         .catch(err => {
           if (err.message === "Unauthorized") {
