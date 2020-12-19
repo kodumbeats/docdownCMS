@@ -6,11 +6,19 @@ export default createStore({
     markdown: "",
     html: "",
     saved: "",
-    revisions: [] as any
+    revisions: [] as any,
+    apiEndpoint: "http://localhost/v1",
+    apiProject: "5fde0c8265d13"
   },
   getters: {
     getRevisions(state) {
       return state.revisions;
+    },
+    getApiUrl(state) {
+      return {
+        apiEndpoint: state.apiEndpoint,
+        apiProject: state.apiProject
+      };
     }
   },
   mutations: {

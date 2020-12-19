@@ -41,9 +41,10 @@ export default {
   },
   methods: {
     login() {
+      const { apiEndpoint, apiProject } = this.$store.getters.getApiUrl;
       const appwrite = new Appwrite()
-        .setEndpoint("http://localhost/v1")
-        .setProject("5fdd4adb21c1a");
+        .setEndpoint(apiEndpoint)
+        .setProject(apiProject);
       Object.assign(this, { appwrite });
 
       this.appwrite.account

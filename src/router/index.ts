@@ -1,11 +1,14 @@
 import { createRouter, createWebHistory, RouteRecordRaw } from "vue-router";
 import Appwrite from "appwrite";
+
 import Home from "../views/Home.vue";
 import Edit from "../views/Edit.vue";
 import Login from "../views/Login.vue";
 import Review from "../views/Review.vue";
 import Sidebar from "../views/Sidebar.vue";
 import Search from "../views/Search.vue";
+
+import store from "../store/";
 
 const routes: Array<RouteRecordRaw> = [
   {
@@ -86,8 +89,10 @@ router.beforeEach((to, from, next) => {
         path: "/login"
       });
     } else {
-      const appwrite = new Appwrite();
-      appwrite.setEndpoint("http://localhost/v1").setProject("5fdd4adb21c1a");
+      const { apiEndpoint, apiProject } = store.getters.getApiUrl;
+      const appwrite = new Appwrite()
+        .setEndpoint(apiEndpoint)
+        .setProject(apiProject);
       appwrite.account
         .get()
         .then(res => {
